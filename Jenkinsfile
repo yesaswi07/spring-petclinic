@@ -9,9 +9,9 @@ pipeline {
 
     stage('static analysis') {
       steps {
-        sh '''mvn clean verify sonar:sonar \\
+        sh '''mvn sonar:sonar \\
+  -Dsonar.host.url=http://localhost:9000 \\
   -Dsonar.projectKey=spring-petclinic \\
-  -Dsonar.host.url=http://65.0.125.61:9000 \\
   -Dsonar.token=sqp_46aea71abd17884e8c85764a860decbdcd9ceb31'''
       }
     }
